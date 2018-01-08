@@ -1,4 +1,3 @@
-student_count = 5
 # create an array to list students in
 students = [
   'Chayya Syal',
@@ -17,4 +16,4 @@ puts students[2]
 puts students[3]
 puts students[4]
 # print total number of students here
-puts "Overall, we have #{student_count} great students"
+puts "Overall, we have #{students.count} great students"
