@@ -8,6 +8,4 @@ puts 'Batman Batman'
 puts 'The Wicked Witch of the West'
 puts 'Covfefe'
 # print total number of students
-print 'Overall, we have '
-print student_count
-puts ' great students'
+puts "Overall, we have #{student_count} great students"
