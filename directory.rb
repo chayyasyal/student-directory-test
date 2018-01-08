@@ -1,10 +1,10 @@
 # create an array to list students in
 students = [
-  ['Chayya Syal', :november],
-  ['Darth Vader', :november],
-  ['Batman Batman', :november],
-  ['The Wicked Witch of the West', :november],
-  ['Covfefe', :november]
+  { name: 'Chayya Syal', cohort: :November },
+  { name: 'Darth Vader', cohort: :November },
+  { name: 'Batman Batman', cohort: :November },
+  { name: 'The Wicked Witch of the West', cohort: :November },
+  { name: 'Covfefe', cohort: :November }
 ]
 def print_header
   puts 'The students of Test Academy'
@@ -13,7 +13,7 @@ end
 
 def print(students)
   students.each do |student|
-    puts "#{student[0]} (#{student[1]} cohort)"
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
