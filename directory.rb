@@ -1,3 +1,29 @@
+def interactive_menu
+  students = []
+  loop do
+    # 1. print the menu and ask user what to do
+    puts '1. Import students'
+    puts '2. Show students'
+    puts '9. Exit'
+    # 2. read input and save it into a variable
+    selection = gets.chomp
+    # 3. do what user has asked
+    case selection
+    when '1'
+      students = input_students
+    when '2'
+      print_header
+      print(students)
+      print_footer(students)
+    when '9'
+      # exit menu
+    else
+      puts 'Computer says no. Try again'
+      # 4. repeat from step 1
+    end
+  end
+end
+
 def input_students
   puts 'Please enter the names of the students'
   puts 'To finish, hit the return key twice'
@@ -15,14 +41,6 @@ def input_students
   # return array of students
 end
 
-# # create an array to list students in
-# students = [
-#   { name: 'Chayya Syal', cohort: :November },
-#   { name: 'Darth Vader', cohort: :November },
-#   { name: 'Batman Batman', cohort: :November },
-#   { name: 'The Wicked Witch of the West', cohort: :November },
-#   { name: 'Covfefe', cohort: :November }
-# ]
 def print_header
   puts 'The students of Test Academy'
   puts '--------------------'
@@ -38,8 +56,8 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 
+interactive_menu
 students = input_students
-# nothing happens until methods are called
 print_header
 print(students)
 print_footer(students)
