@@ -1,4 +1,9 @@
-@students = []
+@students =
+  ['name' => 'Chayya Syal', 'cohort' => 'November']
+['name' => 'Darth Vader', 'cohort' => 'November']
+['name' => 'Batman Batman', 'cohort' => 'November']
+['name' => 'The Wicked Witch of the West', 'cohort' => 'November']
+['name' => 'Covfefe', 'cohort' => 'November']
 
 def input_students
   puts 'Please enter the names of the students'
@@ -19,9 +24,12 @@ def interactive_menu
 end
 
 def print_menu
-  puts '1. Input students'
-  puts '2. Show students'
+  puts '1. Input the students'
+  puts '2. Show the students'
+  puts '3. Save list to students.csv'
   puts '9. Exit'
+
+    # will add more items to menu
   end
 
 def show_students
@@ -36,11 +44,23 @@ def process(selection)
     input_students
   when '2'
     show_students
+  when '3'
+    save_students
   when '9'
     exit
   else
     puts 'Computer says no. Try again.'
   end
+end
+
+def save_students
+  file = File.open('students.csv', 'w')
+  @students.each do |student|
+    student_data = [student[:name], student[:cohort]]
+    csv_line = student_data.join(',')
+    file.puts 'This is written to a file'
+  end
+  file.close
 end
 
 def print_header
@@ -54,8 +74,8 @@ def print_students_list
   end
 end
 
-def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+def print_footer
+  puts "Overall, we have #{@students.count} great students"
 end
 
 interactive_menu
